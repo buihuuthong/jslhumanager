@@ -1,6 +1,6 @@
 import { Button, Checkbox, Table } from "antd";
 import React, { useState } from "react";
-import { DEPARTMENT, STATE, UNIT } from "../constants/list";
+import { DEPARTMENT, STATE } from "../constants/list";
 const ArticleTable = ({ data, onDetail, onDelete }) => {
   const columns = [
     {
@@ -102,11 +102,11 @@ const ArticleTable = ({ data, onDetail, onDelete }) => {
     },
   ];
 
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  // const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
   // Hàm xử lý ô được chọn
   const onSelectChange = (index) => {
-    setSelectedRowKeys(index);
+    // setSelectedRowKeys(index);
   };
 
   return (

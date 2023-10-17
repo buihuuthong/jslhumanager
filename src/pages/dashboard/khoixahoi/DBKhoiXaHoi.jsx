@@ -24,7 +24,7 @@ const DBKhoiXaHoi = () => {
   const navigate = useNavigate();
   const [khoaData, setKhoaData] = useState({});
   const [loading, setLoading] = useState(true);
-  const khoaNames = ["", "Khoa Đông Phương", "Khoa Ngôn ngữ Anh", ,];
+  const khoaNames = ["", "Khoa Đông Phương", "Khoa Ngôn ngữ Anh"];
 
   const fetchData = async () => {
     try {
