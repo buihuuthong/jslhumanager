@@ -1,10 +1,40 @@
 {
-    "version": 2,
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/tong-quat",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/khoi-ky-thuat",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/khoi-hoa-duoc",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/khoi-kinh-te",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/khoi-xa-hoi",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/quan-ly-bao",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/*",
+      "dest": "/index.html"
+    }
+  ]
+}
