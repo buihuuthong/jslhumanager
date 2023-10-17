@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Đổi màu nút OK trong filter */
+.ant-table-filter-dropdown-btns 
+  .ant-btn-primary {
+    background-color: #3333FF;
+  }
+
+  .ant-btn-link {
+    color: #ff5733;
+  }
+
+
+@media (min-width: 640px) {
+  .max-w-lg {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .max-w-lg {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .max-w-lg {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .max-w-lg {
+    max-width: 1280px;
+  }
+}
