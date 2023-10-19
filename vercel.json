@@ -9,6 +9,10 @@
       "dest": "/static/$1"
     },
     {
+      "src": "/dang-ky",
+      "dest": "/index.html"
+    },
+    {
       "src": "/tong-quat",
       "dest": "/index.html"
     },
