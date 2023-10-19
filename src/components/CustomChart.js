@@ -29,7 +29,6 @@ const CustomChart = ({
   title,
   label,
   data,
-  vertical,
   horizontal,
   stacked,
   line,
@@ -38,7 +37,7 @@ const CustomChart = ({
   legend,
   position,
   width,
-  height
+  height,
 }) => {
   const labels = label;
 
@@ -65,7 +64,7 @@ const CustomChart = ({
       ? [
           {
             label: "Chấp nhận",
-            backgroundColor: 'rgb(53, 162, 235)',
+            backgroundColor: "rgb(53, 162, 235)",
             borderColor: customColors.map((color) => color.replace("0.2", "1")),
             borderWidth: 1,
             data: [
@@ -77,7 +76,7 @@ const CustomChart = ({
           },
           {
             label: "Không chấp nhận",
-            backgroundColor: 'rgb(75, 192, 12)',
+            backgroundColor: "rgb(75, 192, 12)",
             borderColor: customColors.map((color) => color.replace("0.2", "1")),
             borderWidth: 1,
             data: [
@@ -89,7 +88,7 @@ const CustomChart = ({
           },
           {
             label: "Chưa chấp nhận",
-            backgroundColor: 'rgb(255, 99, 132)',
+            backgroundColor: "rgb(255, 99, 132)",
             borderColor: customColors.map((color) => color.replace("0.2", "1")),
             borderWidth: 1,
             data: [
@@ -105,7 +104,8 @@ const CustomChart = ({
             label: null,
             backgroundColor: customColors,
             borderColor: customColors.map((color) => color.replace("0.2", "1")),
-            borderWidth: 1,
+            borderWidth: line ? 2 : 1,
+            tension: 0.4, // Điều chỉnh độ cong ở đây
             data:
               title === "Số lượng bài báo"
                 ? [
@@ -153,6 +153,22 @@ const CustomChart = ({
                 //   ]
                 title === "Tổng số báo 2023 - 2024"
                 ? [data?.Nam2023, data?.Nam2024]
+                : // Biểu đồ đường (trang tổng quát)
+                line
+                ? [
+                    data?.Thang1,
+                    data?.Thang2,
+                    data?.Thang3,
+                    data?.Thang4,
+                    data?.Thang5,
+                    data?.Thang6,
+                    data?.Thang7,
+                    data?.Thang8,
+                    data?.Thang9,
+                    data?.Thang10,
+                    data?.Thang11,
+                    data?.Thang12,
+                  ]
                 : [
                     data?.acceptedPosts,
                     data?.rejectedPosts,
@@ -165,10 +181,12 @@ const CustomChart = ({
 
   const options = {
     indexAxis: horizontal ? "y" : null,
-    interaction: stacked ?  {
-      mode: 'index',
-      intersect: false,
-    } : null,
+    interaction: stacked
+      ? {
+          mode: "index",
+          intersect: false,
+        }
+      : null,
     responsive: false,
     anchor: "end",
     plugins: {
@@ -248,7 +266,12 @@ const CustomChart = ({
   ) : line ? (
     <Line data={chartData} options={options} width={"450px"} height={"350px"} />
   ) : (
-    <Bar data={chartData} options={options} width={ width ? width : "450px"} height={ height ? height : "350px"} />
+    <Bar
+      data={chartData}
+      options={options}
+      width={width ? width : "450px"}
+      height={height ? height : "350px"}
+    />
   );
 };
 

@@ -1,4 +1,5 @@
 import AxiosClient from "./AxiosClient";
+import moment from 'moment'
 
 const serviceApi = {
   getDuLieu: (tabs) => {
@@ -73,6 +74,7 @@ const serviceApi = {
       NamXuatBan: data.NamXuatBan,
       TrangThai: data.TrangThai,
       GhiChu: data.GhiChu,
+      NgayTao: moment().format('DD/MM/YYYY'),
     });
   },
   deleteBaiBao: (tabs, index) => {

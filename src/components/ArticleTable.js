@@ -4,15 +4,6 @@ import { DEPARTMENT, STATE } from "../constants/list";
 const ArticleTable = ({ data, onDetail, onDelete }) => {
   const columns = [
     {
-      title: "",
-      dataIndex: "key",
-      key: "key",
-      render: (text, record, index) => (
-        // Chọn ô
-        <Checkbox onClick={() => onSelectChange(index)} />
-      ),
-    },
-    {
       title: "Mã số",
       dataIndex: "MaSo",
       key: "MaSo",
@@ -101,13 +92,6 @@ const ArticleTable = ({ data, onDetail, onDelete }) => {
       ),
     },
   ];
-
-  // const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-
-  // Hàm xử lý ô được chọn
-  const onSelectChange = (index) => {
-    // setSelectedRowKeys(index);
-  };
 
   return (
     <Table

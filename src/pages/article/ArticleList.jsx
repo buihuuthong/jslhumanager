@@ -184,16 +184,52 @@ const ArticleList = () => {
       </div>
       <Form name="control-ref" form={form} onFinish={onFinish}>
         <div className="flex justify-between">
-          <Form.Item name="MaSo" style={{ width: "5%" }}>
+          <Form.Item
+            name="MaSo"
+            style={{ width: "5%" }}
+            rules={[
+              {
+                required: true,
+                message: "Nhập mã số",
+              },
+            ]}
+          >
             <CustomInput placeholder="Mã số" />
           </Form.Item>
-          <Form.Item name="TenTacGia" style={{ width: "15%" }}>
+          <Form.Item
+            name="TenTacGia"
+            style={{ width: "15%" }}
+            rules={[
+              {
+                required: true,
+                message: "Nhập tên tác giả",
+              },
+            ]}
+          >
             <CustomInput placeholder="Tên tác giả" />
           </Form.Item>
-          <Form.Item name="DonVi" style={{ width: "20%" }}>
+          <Form.Item
+            name="DonVi"
+            style={{ width: "20%" }}
+            rules={[
+              {
+                required: true,
+                message: "Chọn đơn vị",
+              },
+            ]}
+          >
             <CustomSelector placeholder="Đơn vị" options={DEPARTMENT} />
           </Form.Item>
-          <Form.Item name="TenBaiBao" style={{ width: "35%" }}>
+          <Form.Item
+            name="TenBaiBao"
+            style={{ width: "35%" }}
+            rules={[
+              {
+                required: true,
+                message: "Nhập tên bài báo",
+              },
+            ]}
+          >
             <CustomInput placeholder="Tên bài báo" />
           </Form.Item>
           <Form.Item name="PhanBien" style={{ width: "10%" }}>

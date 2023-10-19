@@ -1,14 +1,14 @@
 import { Skeleton } from "antd";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CustomButton from "../../components/CustomButton";
-import CustomChart from "../../components/CustomChart";
-import DBTongQuatTable from "../../components/table/DBTongQuatTable";
-import MainLayout from "../../layouts/MainLayout";
-import dashboardApi from "../../services/dasboardApi";
-import "./dashboard.css";
+import CustomButton from "../../../components/CustomButton";
+import CustomChart from "../../../components/CustomChart";
+import DBTongQuatTable from "../../../components/table/DBTongQuatTable";
+import MainLayout from "../../../layouts/MainLayout";
+import dashboardApi from "../../../services/dasboardApi";
+import "../dashboard.css";
 
-const DashBoard = () => {
+const DBTongQuat = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -96,6 +96,25 @@ const DashBoard = () => {
         <CustomChart
           data={data}
           label={[
+            "Tháng 1",
+            "Tháng 2",
+            "Tháng 3",
+            "Tháng 4",
+            "Tháng 5",
+            "Tháng 6",
+            "Tháng 7",
+            "Tháng 8",
+            "Tháng 9",
+            "Tháng 10",
+            "Tháng 11",
+            "Tháng 12",
+          ]}
+          title="Tổng quát số lượng bài báo trong năm"
+          line
+        />
+        <CustomChart
+          data={data}
+          label={[
             "Tổng bài",
             "Chưa chấp nhận",
             "Chấp nhận đăng",
@@ -106,6 +125,8 @@ const DashBoard = () => {
           title="Tổng quát số lượng bài báo"
           horizontal
         />
+      </div>
+      <div className="flex flex-row justify-around w-[100%] py-5">
         <CustomChart
           data={data}
           label={[
@@ -117,8 +138,6 @@ const DashBoard = () => {
           title="Tổng quát bài báo và tác giả"
           horizontal
         />
-      </div>
-      <div className="flex flex-row justify-around w-[100%] py-5">
         <CustomChart
           data={data}
           label={[
@@ -131,7 +150,7 @@ const DashBoard = () => {
           stacked
           legend
           position="right"
-          width={"700px"}
+          width={"600px"}
         />
         <CustomChart
           data={data}
@@ -139,10 +158,11 @@ const DashBoard = () => {
           title="Tổng số báo 2023 - 2024"
           doughnut
           legend
+          position="right"
         />
       </div>
     </MainLayout>
   );
 };
 
-export default DashBoard;
+export default DBTongQuat;
