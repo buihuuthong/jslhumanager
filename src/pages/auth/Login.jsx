@@ -104,14 +104,6 @@ const Login = () => {
           />
         </Form.Item>
       </Form>
-      <div className="max-w-lg px-10 py-3">
-        <span>
-          Chưa có tài khoản?{" "}
-          <a href="/dang-ky" style={{ color: "#3333FF" }}>
-            Đăng ký ngay
-          </a>
-        </span>
-      </div>
     </div>
   );
 };
