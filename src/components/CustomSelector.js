@@ -11,7 +11,7 @@ const CustomSelector = ({
 }) => {
   return (
     <div style={style}>
-      <p style={{ fontWeight: "600", fontSize: 16 }}>{placeholder}</p>
+      <p className="text-sm font-medium sm:text-sm md:text-sm lg:text-sm xl:text-sm">{placeholder}</p>
       <Select
         placeholder={placeholder}
         defaultValue={defaultValue}

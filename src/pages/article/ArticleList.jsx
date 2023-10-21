@@ -26,7 +26,8 @@ const ArticleList = () => {
   const [activekey, setActivekey] = useState(1);
   const [loading, setLoading] = useState(true);
   const [tabKey, setTabKey] = useState();
-
+  const [currentDate, setCurrentDate] = useState();
+  
   // Lấy danh sách bài báo
   const getDanhSach = async (tabs, key) => {
     try {
@@ -55,6 +56,7 @@ const ArticleList = () => {
       const result = await serviceApi.getBaiBao(tabs, index);
       setTabKey(tabs);
       form.setFieldsValue(result[0]);
+      setCurrentDate(result[0]?.NgayTao);
     } catch (error) {
       console.log(error);
     }
@@ -69,7 +71,8 @@ const ArticleList = () => {
         await serviceApi.updateBaiBao(
           tabKey ? tabKey : "KHOIKYTHUAT",
           data.MaSo,
-          data
+          data,
+          currentDate
         );
         api.success({
           message: "Thành công",
@@ -159,7 +162,7 @@ const ArticleList = () => {
   };
 
   return (
-    <MainLayout selectedKeys={"2"}>
+    <MainLayout title="Quản lý báo các khối" selectedKeys={"2"}>
       <div className="flex justify-center pb-2">
         <CustomButton
           title="Khối Kỹ thuật"
@@ -261,10 +264,10 @@ const ArticleList = () => {
               options={BOOL}
             />
           </Form.Item>
-          <Form.Item name="ChapNhanXuatBan" style={{ width: "10%" }}>
+          <Form.Item name="ChapNhanXuatBan" style={{ width: "15%" }}>
             <CustomSelector placeholder="Chấp nhận xuất bản" options={BOOL} />
           </Form.Item>
-          <Form.Item name="ChapNhanDang" style={{ width: "10%" }}>
+          <Form.Item name="ChapNhanDang" style={{ width: "15%" }}>
             <CustomSelector placeholder="Chấp nhận đăng" options={PUBLIC} />
           </Form.Item>
         </div>
@@ -287,7 +290,10 @@ const ArticleList = () => {
           <Form.Item name="TrangThai" style={{ width: "10%" }}>
             <CustomSelector placeholder="Trạng thái" options={STATE} />
           </Form.Item>
-          <Form.Item name="GhiChu" style={{ width: "30%" }}>
+          <Form.Item name="MaDOI" style={{ width: "10%" }}>
+            <CustomInput placeholder="Mã DOI" />
+          </Form.Item>
+          <Form.Item name="GhiChu" style={{ width: "20%" }}>
             <CustomInput placeholder="Ghi chú" />
           </Form.Item>
         </div>

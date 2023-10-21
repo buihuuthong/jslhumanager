@@ -4,9 +4,9 @@ import React from "react";
 const CustomInput = ({ placeholder, prefix, value, onChange, type, style }) => {
   return (
     <div style={style}>
-      <p
-        style={{ fontWeight: '600', fontSize: 16}}
-      >{placeholder}</p>
+      <p className="text-sm font-medium sm:text-sm md:text-sm lg:text-sm xl:text-sm">
+        {placeholder}
+      </p>
       <Input
         prefix={prefix}
         placeholder={placeholder}

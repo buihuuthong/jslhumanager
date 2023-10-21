@@ -1,6 +1,6 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Checkbox, Form, Input, notification } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import CustomButton from "../../components/CustomButton";
 import CustomInput from "../../components/CustomInput";
 import "../../index.css";
@@ -15,6 +15,9 @@ const Login = () => {
   const onChecked = (e) => {
     console.log(`checked = ${e.target.checked}`);
   };
+  useEffect(() => {
+    document.title = "Đăng nhập";
+  }, []);
 
   const onFinish = async (value) => {
     try {

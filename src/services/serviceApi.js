@@ -8,7 +8,7 @@ const serviceApi = {
   getBaiBao: (tabs, index) => {
     return AxiosClient.get("tabs/" + tabs + "/" + index);
   },
-  updateBaiBao: (tabs, MaSo, data) => {
+  updateBaiBao: (tabs, MaSo, data, currentDate) => {
     return AxiosClient.put("tabs/" + tabs + "/MaSo/" + MaSo, {
       MaSo: data.MaSo,
       Khoi:
@@ -39,7 +39,9 @@ const serviceApi = {
       SoXuatBan: data.SoXuatBan,
       NamXuatBan: data.NamXuatBan,
       TrangThai: data.TrangThai,
+      MaDOI: data.MaDOI,
       GhiChu: data.GhiChu,
+      NgayTao: currentDate,
     });
   },
   createBaiBao: (tabs, data) => {
@@ -73,6 +75,7 @@ const serviceApi = {
       SoXuatBan: data.SoXuatBan,
       NamXuatBan: data.NamXuatBan,
       TrangThai: data.TrangThai,
+      MaDOI: data.MaDOI,
       GhiChu: data.GhiChu,
       NgayTao: moment().format('DD/MM/YYYY'),
     });

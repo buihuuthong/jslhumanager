@@ -60,7 +60,7 @@ const DBKhoiXaHoi = () => {
   }, []);
 
   return (
-    <MainLayout>
+    <MainLayout title="Khối xã hội" >
       <div className="flex justify-center py-4">
         <CustomButton
           title="Tổng quát"

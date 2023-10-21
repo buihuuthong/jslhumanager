@@ -66,7 +66,7 @@ const DBKhoiKinhTe = () => {
   }, []);
 
   return (
-    <MainLayout>
+    <MainLayout title="Khối kinh tế" >
       <div className="flex justify-center py-4">
         <CustomButton
           title="Tổng quát"

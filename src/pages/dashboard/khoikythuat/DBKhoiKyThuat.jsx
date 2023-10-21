@@ -66,7 +66,7 @@ const DBKhoiKyThuat = () => {
   }, []);
 
   return (
-    <MainLayout>
+    <MainLayout title="Khối kỹ thuật" >
       <div className="flex justify-center py-4">
         <CustomButton
           title="Tổng quát"

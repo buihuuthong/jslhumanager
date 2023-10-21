@@ -29,7 +29,7 @@ const DBTongQuat = () => {
   }, []);
 
   return (
-    <MainLayout>
+    <MainLayout title="Tổng quát" >
       <div className="flex justify-center py-4">
         <CustomButton
           title="Tổng quát"

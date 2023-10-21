@@ -2,7 +2,7 @@ import { FileDoneOutlined, PieChartOutlined } from "@ant-design/icons";
 import { Button, Dropdown, Layout, Menu } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { Content, Footer, Header } from "antd/es/layout/layout";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUserInfo, userInfoSelector } from "../redux/userSlice";
@@ -23,7 +23,7 @@ const footerStyle = {
   backgroundColor: "#E0E0E0",
 };
 
-const MainLayout = ({ children, selectedKeys }) => {
+const MainLayout = ({ children, selectedKeys, title }) => {
   const dispatch = useDispatch();
   const user = useSelector(userInfoSelector);
   const [collapsed, setCollapsed] = useState(false);
@@ -37,6 +37,11 @@ const MainLayout = ({ children, selectedKeys }) => {
       console.log("Main layout logout error: " + error);
     }
   };
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+  
 
   return (
     <Layout className="flex" style={{ minHeight: "100vh" }}>
@@ -79,23 +84,25 @@ const MainLayout = ({ children, selectedKeys }) => {
           style={headerStyle}
           className="flex justify-between items-center"
         >
-          <div style={{ width: "20%" }} />
+          <div style={{ width: "10%" }} />
           <div
+            className="text-2xl sm:text-sm md:text-sm lg:text-md xl:text-xl"
             style={{
-              fontSize: 24,
               fontWeight: 500,
               color: "#1677ff",
             }}
           >
             Website Quản lý tạp chí - Trung tâm Nghiên cứu Khoa học và Ứng dụng
           </div>
-          <div style={{ width: "20%" }}>
+          <div style={{ width: "10%" }}>
             <Dropdown
               overlay={
                 <Menu>
-                  <Menu.Item key="info">Thông tin cá nhân</Menu.Item>
-                  <hr />
-                  <Menu.Item key="logout" onClick={() => onLogout()}>
+                  <Menu.Item
+                    style={{ backgroundColor: "#FF6666", color: "#fff" }}
+                    key="logout"
+                    onClick={() => onLogout()}
+                  >
                     Đăng xuất
                   </Menu.Item>
                 </Menu>
@@ -109,8 +116,8 @@ const MainLayout = ({ children, selectedKeys }) => {
         </Header>
         <Content style={contentStyle}>{children}</Content>
         <Footer style={footerStyle}>
-          Website Quản lý tạp chí ©2023 Tạo bởi Trung tâm Nghiên cứu Khoa học và
-          Ứng dụng{" "}
+          Trung tâm Nghiên cứu Khoa học và Ứng dụng (cơ sở 6), Trường Đại học
+          Lạc Hồng
         </Footer>
       </Layout>
     </Layout>
