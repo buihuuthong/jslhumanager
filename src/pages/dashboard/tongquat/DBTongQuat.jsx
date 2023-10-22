@@ -92,6 +92,19 @@ const DBTongQuat = () => {
           Biểu đồ thống kê số liệu
         </p>
       </div>
+      <div className="flex justify-center py-4">
+        <p
+          className=""
+          style={{
+            fontSize: 24,
+            color: "#3333FF",
+            fontWeight: "bold",
+            textTransform: "uppercase",
+          }}
+        >
+          Phần code thay đổi
+        </p>
+      </div>
       <div className="flex flex-row justify-around w-[100%] py-5">
         <CustomChart
           data={data}
